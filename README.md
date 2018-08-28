@@ -1,4 +1,4 @@
-# DFIR TOOLKIT
+DFIR TOOLKIT
 ======
 Scripts for IR/Forensics
 
