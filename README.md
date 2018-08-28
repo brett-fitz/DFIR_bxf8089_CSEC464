@@ -17,5 +17,5 @@ https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-s
 ## Author
 
 #### Brett Fitzpatrick
-Computer Security Student @ RIT / Threat Hunter @ IronNet Cybersecurity
+Computer Security Student @ RIT | Threat Hunter @ IronNet Cybersecurity
 bxf8089@rit.edu
