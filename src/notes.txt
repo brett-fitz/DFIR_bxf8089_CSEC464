@@ -1,0 +1,71 @@
+* Time
+	* current time
+	* time zone of PC
+	* PC uptime
+* OSversion(Windows / Linux)
+	* Get numerical include major, minor, build, and revision 
+	* Get typical name( Windows 10 ...)
+	* Kernel version where appropriate
+* System hardware specs
+	* CPU brand and type
+	* Ram amountT
+	* HDD amount
+		* List harddrives
+		* List mounted file systems
+* Get domain controller info
+	* Get IP address of DC
+	* Get hostname of DC
+	* Get DNS servers for domain
+* Hostname and domain
+	* Get hostname and domain
+* List of users
+	* Local users include SID of user, user account creation date, last login
+	* Domain users include SID of user, user account creation date, last login
+	* System users include SID of user, user account creation date, last login
+	* Service users 
+	* Get user login history
+* Start at boot
+	* Services
+	* Porgrams
+		* Registry location
+		* Command
+		* User runs as
+* List of scheduled tasks
+* Network
+	* Get ARP table
+	* MAC addresses for all interfaces
+	* Routing table 
+	* IP address (IPv4 and IPv6) for all interfaces
+	* Get DHCP server
+	* Get DNS server
+	* Get gateway for all interfaces
+	* Show listening services: 
+		* IP addr it’s binded to
+		* port service is listening on
+		* protocol
+		* service/process name
+	* Show established connections
+
+		* remote IP address
+		* local/remote port
+		* Protocol
+		* timestamp of connection
+		* service/process name
+	* Get DNS cache
+* Network shares, printers, and wifi access profiles
+* List of all installed software
+* Process list
+	* Show process name
+	* Show process ID
+	* Show process parent ID
+	* Show location of process on file system
+	* Show process owner by username
+* Driver list
+	* Driver name
+	* Must show if driver is boot critical or not
+	* The location of the driver on disk
+	* Version of the driver
+	* Date the driver was created
+	* ProviderName
+* List of files in Downloads and Documents for each user directory
+* Add 3 of your own
