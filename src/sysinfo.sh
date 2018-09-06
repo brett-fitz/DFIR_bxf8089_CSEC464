@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Version: 0.2
+
 get_sysinfo(){
 	# Header
 	printf "System Info:\n\n"
@@ -14,13 +16,19 @@ get_sysinfo(){
 	printf "$(uname -a)\n\n\n"
 	# System Hardware Specs
 	printf "System Hardware Specs (CPU, MEM, DISK): \n"
-	printf "CPU:\n$(lscpu)\nMemory:\n$(free -m)\n\n\n"
+	printf "CPU:\n$(lscpu)\nMemory:\n$(free -m)\nDisk:\n$(lsblk)\n\n\n"
 	# Get Domain Controller Info
 	printf "Domain Controller Info: \n"
 	printf "$(odutil show nodenames)\n\n\n"
 	# Hostname and Domain
 	printf "Hostname and Domain: \n"
 	printf "Hostname: $(Hostname)\nDomain: $(Domainname)\n\n\n"
+	# List of Users (Info / History)
+	printf "User Info: \n"
+	printf "$(cat /etc/passwd)\n\n\n"
+	printf "User Login History: \n"
+	printf "$(last)\n\n\n"
+
 }
 
 printf "$(get_sysinfo)\n\n"
