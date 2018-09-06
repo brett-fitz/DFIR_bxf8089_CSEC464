@@ -22,13 +22,34 @@ get_sysinfo(){
 	printf "$(odutil show nodenames)\n\n\n"
 	# Hostname and Domain
 	printf "Hostname and Domain: \n"
-	printf "Hostname: $(Hostname)\nDomain: $(Domainname)\n\n\n"
+	printf "Hostname: $(Hostname)\nDomain: $(cat /etc/resolv.conf | grep domain | awk '{print $2}')\n\n\n"
 	# List of Users (Info / History)
 	printf "User Info: \n"
 	printf "$(cat /etc/passwd)\n\n\n"
 	printf "User Login History: \n"
 	printf "$(last)\n\n\n"
-
+	# Start at Boot
+	printf "Programs and Services at Boot: \n"
+	printf "$(systemctl list-units --type service --all)\n\n\n"
+	# List of scheduled tasks
+	printf "List of Scheduled Tasks: \n"
+	printf "$(crontab -l)\n\n\n"
+	# Network
+	printf "Network Info:\n "
+	printf "ARP Table: \n$(arp -a)\n\n"
+	printf "MAC Addresses of All Interfaces: \n$(ifconfig | awk '/ether/ {print $2}')\n\n"
+	printf "Routing Tables: \n$(netstat -r)\n\n"
+	printf "IP Addresses for all Interfaces: \n$(ifconfig | awk '/inet*/ {print $2}')\n\n"
+	printf "DHCP Server: \n$(journalctl | grep DHCPACK | awk '/from/ {print $10}' | tail -1)\n\n"
+	printf "DNS Servers: \n$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')\n\n"
+	printf "Gateway for All Interfaces: \n$(ip route | grep default)\n\n"
+	printf "Listening Services: \n$(lsof -Pnl +M -i)\n\n"
+	printf "Established Connections: \n$(lsof -Pnl +M -i | grep ESTABLISHED)\n\n"
+	printf "DNS Cache: \n$(cat /etc/hosts/)\n\n\n"
+	# Network Shares
+	printf "Network Shares: \n$(lpstat -a)\n\n\n"
+	# Printers
+	printf "Printers: \n$(lpstat -a)\n\n\n"
 }
 
 printf "$(get_sysinfo)\n\n"
