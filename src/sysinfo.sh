@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Version: 0.2
+# Version: 0.5
 
 get_sysinfo(){
 	# Header
@@ -50,6 +50,20 @@ get_sysinfo(){
 	printf "Network Shares: \n$(lpstat -a)\n\n\n"
 	# Printers
 	printf "Printers: \n$(lpstat -a)\n\n\n"
+	# WiFi Profiles
+	printf "WiFi Access Profiles: \n$(iwconfig)\n\n\n"
+	# List all instaled software
+	printf "List All Installed Software: \n$(dpkg -l)\n\n\n"
+	printf "Process list: \n$(ps awwwfux)\n\n\n"
+	printf "Driver List: \n$(lsmod)\n\n\n"
+	# List of files in Downloads and Documents
+	printf "List of Files in Downloads: \n$(cd ~/Downloads; ls -ahl)\n\n"
+	printf "List of Files in Documents: \n$(cd ~/Documents; ls -ahl)\n\n"
+	printf "List of Files in Desktop: \n$(cd ~/Desktop; ls -ahl)\n\n\n"
+	# Print current logged in users and status
+	printf "Who is logged in and what they are doing: \n$(w)\n\n\n"
+	# Last Authenticated SSH Session
+	printf "Last Authenticated SSH Session: \n$(cat /var/log/auth.log | grep sshd | tail)\n\n\n"
 }
 
 printf "$(get_sysinfo)\n\n"
